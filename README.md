@@ -1,100 +1,87 @@
-# Finance Tracker API
+# 💰 Finance Tracker API
 
 ## 📌 Project Overview
+Finance Tracker API is a backend application built using FastAPI and SQLAlchemy to manage financial transactions efficiently.
 
-Finance Tracker API is a simple backend application built using **FastAPI** and **SQLAlchemy** that helps users manage their financial transactions.
+It allows users to:
+- Add income and expense transactions
+- View all transactions
+- Delete transactions
+- Get a financial summary (income, expenses, balance)
 
-The API allows users to:
-
-* Add income or expense transactions
-* View all transactions
-* Delete transactions
-* Get a financial summary including total income, total expenses, and balance
-
-This project demonstrates **REST API development, database integration, data validation, and backend application design using Python**.
+This project demonstrates REST API development, database integration, validation, and clean backend architecture using Python.
 
 ---
 
-## 🚀 Technologies Used
-
-* Python
-* FastAPI
-* SQLAlchemy
-* SQLite
-* Pydantic
-* Uvicorn
+## 🚀 Tech Stack
+- Python
+- FastAPI
+- SQLAlchemy
+- SQLite
+- Pydantic
+- Uvicorn
 
 ---
 
 ## 📂 Project Structure
-
 ```
 finance_project/
 │
-├── main.py          # Main FastAPI application
+├── main.py          # FastAPI application
 ├── models.py        # Database models
-├── schemas.py       # Pydantic schemas for validation
+├── schemas.py       # Data validation schemas
 ├── crud.py          # Database operations
-├── database.py      # Database connection setup
-├── requirements.txt # Project dependencies
-└── README.md        # Project documentation
+├── database.py      # DB connection setup
+├── requirements.txt # Dependencies
+├── .gitignore       # Ignored files
+└── README.md        # Documentation
 ```
 
 ---
 
-## ⚙️ Installation and Setup
+## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the repository
-
-```
+```bash
 git clone https://github.com/yourusername/finance-tracker-api.git
 ```
 
 ### 2️⃣ Navigate to project folder
-
-```
+```bash
 cd finance_project
 ```
 
-### 3️⃣ Install required dependencies
-
-```
+### 3️⃣ Install dependencies
+```bash
 pip install -r requirements.txt
 ```
 
 ### 4️⃣ Run the server
-
-```
+```bash
 uvicorn main:app --reload
 ```
 
-### 5️⃣ Open API documentation
-
-Open in browser:
-
-```
-http://127.0.0.1:8000/docs
-```
+### 5️⃣ Open API docs
+👉 http://127.0.0.1:8000/docs
 
 ---
 
 ## 📡 API Endpoints
 
-| Method | Endpoint                       | Description              |
-| ------ | ------------------------------ | ------------------------ |
-| GET    | /                              | Check if API is running  |
-| POST   | /transactions                  | Create a new transaction |
-| GET    | /transactions                  | Get all transactions     |
-| DELETE | /transactions/{transaction_id} | Delete a transaction     |
-| GET    | /summary                       | Get financial summary    |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | `/`      | Check API status |
+| POST   | `/transactions` | Create transaction |
+| GET    | `/transactions` | Get all transactions |
+| DELETE | `/transactions/{id}` | Delete transaction |
+| GET    | `/summary` | Get financial summary |
 
 ---
 
-## 📊 Example Transaction Request
+## 📊 Example Request
 
-POST `/transactions`
-
-```
+### POST `/transactions`
+```json
 {
   "amount": 500,
   "type": "expense",
@@ -105,11 +92,10 @@ POST `/transactions`
 
 ---
 
-## 📈 Example Summary Response
+## 📈 Example Response
 
-GET `/summary`
-
-```
+### GET `/summary`
+```json
 {
   "total_income": 2000,
   "total_expense": 500,
@@ -119,34 +105,26 @@ GET `/summary`
 
 ---
 
-## 🧪 API Testing
+## 🧪 Testing
+Interactive API documentation is available via Swagger UI:
 
-This project uses **automatic API documentation** provided by FastAPI through Swagger UI.
-
-You can test all endpoints here:
-
-```
-http://127.0.0.1:8000/docs
-```
+👉 http://127.0.0.1:8000/docs
 
 ---
 
-## 🎯 Project Purpose
-
-This project was created as a **Python backend development assessment** to demonstrate:
-
-* API design using FastAPI
-* Backend logic implementation
-* Database integration using SQLAlchemy
-* Data validation using Pydantic
-* Clean project structure and documentation
+## 🎯 Key Features
+- RESTful API design
+- CRUD operations
+- Input validation with Pydantic
+- Database integration with SQLAlchemy
+- Clean and modular structure
 
 ---
 
 ## 👨‍💻 Author
-
-Bhavana
+**Bhavana Murugesan**
 
 ---
+
 ## 📄 License
-This project is developed for educational and demonstration purposes as part of a backend development assessment.
+This project is for educational and demonstration purposes.
