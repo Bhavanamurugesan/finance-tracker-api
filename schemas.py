@@ -14,4 +14,4 @@ class Transaction(BaseModel):
     note: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
