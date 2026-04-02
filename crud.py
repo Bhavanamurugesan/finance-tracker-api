@@ -2,25 +2,22 @@ from sqlalchemy.orm import Session
 import models, schemas
 
 def create_transaction(db: Session, transaction: schemas.TransactionCreate):
-    db_transaction = models.Transaction(
-        amount=transaction.amount,
-        type=transaction.type,
-        category=transaction.category,
-        note=transaction.note
-    )
+    db_transaction = models.Transaction(**transaction.dict())
     db.add(db_transaction)
     db.commit()
     db.refresh(db_transaction)
     return db_transaction
 
-
 def get_transactions(db: Session):
     return db.query(models.Transaction).all()
 
-
 def delete_transaction(db: Session, transaction_id: int):
-    transaction = db.query(models.Transaction).filter(models.Transaction.id == transaction_id).first()
+    transaction = db.query(models.Transaction).filter(
+        models.Transaction.id == transaction_id
+    ).first()
+
     if transaction:
         db.delete(transaction)
         db.commit()
+
     return transaction
